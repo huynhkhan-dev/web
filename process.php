@@ -26,10 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // For example, using password_hash():
     // $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $hashed_password = 'hashed_password'; // Replace with the actual hashed password
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // Insert data into the database
-    $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$hashed_password')";
+    $sql = "INSERT INTO account (username, password) VALUES ('$username', '$hashed_password')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Registration successful";
